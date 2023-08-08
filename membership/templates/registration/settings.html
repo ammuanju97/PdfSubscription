@@ -1,0 +1,39 @@
+
+{% extends 'membership/base.html' %}
+{% block content %}
+
+<div class="position-relative text-center" >
+  
+  {% if cancel_at_period_end %}
+  <!-- <h1>There is no subscribed plan!!!!!!!!!!!!
+   Take a plan!!!!!!!! -->
+   Your memebership is canceled!!!
+  </h1>
+ </div>
+ {% elif membership %}
+  <form action="{% url 'settings' %}" method="POST">
+    {% csrf_token %}
+    <br><br><br>
+    <h2>Do you want to cancel membership/subscription? Click the button</h2>
+    <input type="submit" value="Cancel Membership?">
+    </form><br><br><br>
+
+
+ <h3>Do you want to Update or Upgrade Subscription?</h3>
+    <a href="{% url 'updatesubscription' %}">Update membership</a><br>
+
+
+
+
+<h3>Do you want to see  Subscription details?</h3>
+<a href="{% url 'listsubscription' %}">List deatils</a>
+
+  {% else %}
+  <br><br><br>
+  <h2>Get a new membership</h2>
+  <a href="{% url 'join' %}">Get a membership</a>
+
+  
+  {% endif %}
+</div>
+{% endblock %}

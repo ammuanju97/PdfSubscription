@@ -1,0 +1,27 @@
+{% extends 'membership/base.html' %}
+{% block content %}
+{% load static %}
+
+<h1>Subscription  Details  </h1>
+
+
+<br>
+<br>
+<br>
+<br>
+subscription status = {{ data.status }}
+<br><br><br>
+
+amount= {{ data.amount }}
+
+plan name={{ data.name }}
+<br><br><br>
+Subscription start date = {{ data.trial_start }}
+<br><br><br>
+subscription end date = {{ data.trial_end }}
+<br><br><br><br><br>
+<!-- reamining days = {{ data.remaining_days }} -->
+<button><a href="{% url 'home' %}">Back </a></button>
+<br>
+<br>
+{% endblock %}
